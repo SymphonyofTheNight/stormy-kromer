@@ -16,6 +16,9 @@ import { revalidate } from '~/client/revalidate-target';
 import { Notifications } from '../notifications';
 import { Providers } from '../providers';
 
+//! custom
+import { cn } from '~/lib/utils';
+
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -93,7 +96,7 @@ export default function RootLayout({ children, params: { locale } }: Props) {
       <head>
         <DraftModeScript />
       </head>
-      <body className="flex h-screen min-w-[375px] flex-col">
+      <body className={cn('flex h-screen min-w-[375px] flex-col', 'h-auto')}>
         <Notifications />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>{children}</Providers>
