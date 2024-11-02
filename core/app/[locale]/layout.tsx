@@ -92,7 +92,7 @@ export default function RootLayout({ children, params: { locale } }: Props) {
   const messages = useMessages();
 
   return (
-    <html className={`${inter.variable} font-sans`} lang={locale}>
+    <html className={`${inter.variable} font-sans !font-[400]`} lang={locale}>
       <head>
         <DraftModeScript />
       </head>

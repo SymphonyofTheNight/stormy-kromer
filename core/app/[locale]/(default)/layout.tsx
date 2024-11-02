@@ -6,6 +6,9 @@ import { Header, HeaderSkeleton } from '~/components/header';
 import { Cart } from '~/components/header/cart';
 import { LocaleType } from '~/i18n/routing';
 
+// !custom
+import { cn } from '~/lib/utils';
+
 interface Props extends PropsWithChildren {
   params: { locale: LocaleType };
 }
@@ -19,7 +22,7 @@ export default function DefaultLayout({ children, params: { locale } }: Props) {
         <Header cart={<Cart />} />
       </Suspense>
 
-      <main className="flex-1 px-4 2xl:container sm:px-10 lg:px-12 2xl:mx-auto 2xl:px-0">
+      <main className={cn('flex-1 px-4 2xl:container sm:px-10 lg:px-12 2xl:mx-auto 2xl:px-0', '2xl:mx-0 !max-w-[100%] lg:px-0 sm:px-0 px-0')}>
         {children}
       </main>
 

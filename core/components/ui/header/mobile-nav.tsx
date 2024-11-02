@@ -46,7 +46,7 @@ export const MobileNav = ({ links, logo }: Props) => {
           <SheetPrimitive.Title asChild>
             <h2 className="sr-only">Navigation menu</h2>
           </SheetPrimitive.Title>
-          <div className="flex h-[92px] items-center justify-between">
+          {/* <div className="flex h-[92px] items-center justify-between">
             <div className="overflow-hidden text-ellipsis py-3">
               {typeof logo === 'object' ? (
                 <BcImage
@@ -58,7 +58,7 @@ export const MobileNav = ({ links, logo }: Props) => {
                   width={155}
                 />
               ) : (
-                <span className="truncate text-2xl font-black">{logo}</span>
+                <span className="truncate text-2xl font-black text-white">{logo}</span>
               )}
             </div>
             <SheetPrimitive.DialogClose>
@@ -66,7 +66,7 @@ export const MobileNav = ({ links, logo }: Props) => {
                 <X className="h-6 w-6" />
               </div>
             </SheetPrimitive.DialogClose>
-          </div>
+          </div> */}
           <NavigationMenuPrimitive.Root orientation="vertical">
             <NavigationMenuPrimitive.List className="flex flex-col gap-2 pb-6 lg:gap-4">
               {links.map((link) =>
