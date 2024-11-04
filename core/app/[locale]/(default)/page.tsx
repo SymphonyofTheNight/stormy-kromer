@@ -28,6 +28,13 @@ const HomePageQuery = graphql(
             }
           }
         }
+        bestSellingProducts(first: 12) {
+          edges {
+            node {
+              ...ProductCardCarouselFragment
+            }
+          }
+        }
       }
     }
   `,
@@ -55,6 +62,9 @@ export default async function Home({ params: { locale } }: Props) {
 
   const featuredProducts = removeEdgesAndNodes(data.site.featuredProducts);
   const newestProducts = removeEdgesAndNodes(data.site.newestProducts);
+  const bestSellingProducts = removeEdgesAndNodes(data.site.bestSellingProducts);
+
+  console.log(bestSellingProducts);
 
   return (
     <>
@@ -69,7 +79,7 @@ export default async function Home({ params: { locale } }: Props) {
           </div>
         </div>
 
-        <div className='max-w-[1440px] w-[92%] h-[100vh] mx-auto'>
+        <div className='max-w-[1440px] w-[92%] h-auto mx-auto'>
           <div className='flex flex-row items-center justify-between py-[15px]'>
             <div className='h-[30px] w-[0px] bg-[#AD1A2E] opacity-[.4]'></div>
             <span className='text-[#AD1A2E] text-[14px] font-[600] flex flex=row items-center justify-center'>
@@ -88,25 +98,70 @@ export default async function Home({ params: { locale } }: Props) {
             </span>
             <div className='h-[30px] w-[0px] bg-[#AD1A2E] opacity-[.4]'></div>
           </div>
-          <div className='w-[100%] h-auto flex flex-row'>
-            <div className='group w-[50%] relative bg-red-700 overflow-hidden bg-opacity-30'>
-              <img className='hover:scale-[1.1] transition-all duration-300' src='https://cdn11.bigcommerce.com/s-3vdgh6wtox/images/stencil/original/image-manager/hcapsf24.jpg' />
+          <div className='w-[100%] h-auto flex flex-row flex-wrap'>
+            <div className='group w-[100%] lg:w-[50%] relative bg-red-700 overflow-hidden bg-opacity-30'>
+              <div className='relative transition-transform duration-300 group-hover:scale-[1.1]'>
+                <img className='w-full h-auto' src='https://cdn11.bigcommerce.com/s-3vdgh6wtox/images/stencil/original/image-manager/hcapsf24.jpg' />
+              </div>
+              <div className='absolute transform -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%] text-center w-[70%]'>
+                <h4 className='text-white text-[14px] font-[400]'>STORMY KROMER®</h4>
+                <h3 className='text-white text-[24px] font-[600]'>WARM WEATHER CAPS</h3>
+                <button>
+                  <span className='text-white text-[14px] underline'>SHOP NOW</span>
+                </button>
+              </div>
             </div>
-            <div className='w-[50%] bg-green-700'>
+            <div className='w-[100%] lg:w-[50%] bg-green-700'>
               <div className='w-[100%] flex flex-wrap items-center justify-center'>
-                <div className='group w-[50%] relative bg-red-700 overflow-hidden'>
-                  <img className='hover:scale-[1.1] transition-all duration-300 brightness-50 hover:brightness-100' src='https://cdn11.bigcommerce.com/s-3vdgh6wtox/images/stencil/original/image-manager/fall-winter-collection.jpg?t=1715656670' />
-                  <h3 className='text-white absolute top-[50%] left-[50%]'>TESTING LANG</h3>
+
+                <div className='group w-[100%] sm:w-[50%] relative bg-red-700 overflow-hidden'>
+                  <div className='relative transition-transform duration-300 group-hover:scale-[1.1] group-hover:brightness-100'>
+                    <img className='w-full h-auto transition-all duration-300 brightness-50' src='https://cdn11.bigcommerce.com/s-3vdgh6wtox/images/stencil/original/image-manager/fall-winter-collection.jpg?t=1715656670' />
+                  </div>
+                  <div className='absolute transform -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%] text-center w-[70%]'>
+                    <h3 className='text-white text-[24px] font-[600]'>SPRING & SUMMER NEW ARRIVALS</h3>
+                    <button>
+                      <span className='text-white text-[14px] underline'>SHOP NOW</span>
+                    </button>
+                  </div>
                 </div>
-                <div className='group w-[50%] relative bg-red-700 overflow-hidden'>
-                  <img className='hover:scale-[1.1] transition-all duration-300' src='https://cdn11.bigcommerce.com/s-3vdgh6wtox/images/stencil/original/image-manager/hshopwf24.jpg' />
+
+                <div className='group w-[100%] sm:w-[50%] relative bg-red-700 overflow-hidden'>
+                  <div className='relative transition-transform duration-300 group-hover:scale-[1.1] group-hover:brightness-100'>
+                    <img className='w-full h-auto transition-all duration-300 brightness-50' src='https://cdn11.bigcommerce.com/s-3vdgh6wtox/images/stencil/original/image-manager/hshopwf24.jpg' />
+                  </div>
+                  <div className='absolute transform -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%] text-center w-[70%]'>
+                    <h3 className='text-white text-[24px] font-[600]'>WOMEN</h3>
+                    <button>
+                      <span className='text-white text-[14px] underline'>SHOP NOW</span>
+                    </button>
+                  </div>
                 </div>
-                <div className='group w-[50%] relative bg-red-700 overflow-hidden'>
-                  <img className='hover:scale-[1.1] transition-all duration-300' src='https://cdn11.bigcommerce.com/s-3vdgh6wtox/images/stencil/original/image-manager/hshopmf24.jpg' />
+
+                <div className='group w-[100%] sm:w-[50%] relative bg-red-700 overflow-hidden'>
+                  <div className='relative transition-transform duration-300 group-hover:scale-[1.1] group-hover:brightness-100'>
+                    <img className='w-full h-auto transition-all duration-300 brightness-50' src='https://cdn11.bigcommerce.com/s-3vdgh6wtox/images/stencil/original/image-manager/hshopmf24.jpg' />
+                  </div>
+                  <div className='absolute transform -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%] text-center w-[70%]'>
+                    <h3 className='text-white text-[24px] font-[600]'>MEN</h3>
+                    <button>
+                      <span className='text-white text-[14px] underline'>SHOP NOW</span>
+                    </button>
+                  </div>
                 </div>
-                <div className='group w-[50%] relative bg-red-700 overflow-hidden'>
-                  <img className='hover:scale-[1.1] transition-all duration-300' src='https://cdn11.bigcommerce.com/s-3vdgh6wtox/images/stencil/original/image-manager/bwl.jpg' />
+
+                <div className='group w-[100%] sm:w-[50%] relative bg-red-700 overflow-hidden'>
+                  <div className='relative transition-transform duration-300 group-hover:scale-[1.1] group-hover:brightness-100'>
+                    <img className='w-full h-auto transition-all duration-300 brightness-50' src='https://cdn11.bigcommerce.com/s-3vdgh6wtox/images/stencil/original/image-manager/bwl.jpg' />
+                  </div>
+                  <div className='absolute transform -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%] text-center w-[70%]'>
+                    <h3 className='text-white text-[24px] font-[600]'>GIFT <br /> CERTIFICATES</h3>
+                    <button>
+                      <span className='text-white text-[14px] underline'>SHOP NOW</span>
+                    </button>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>
