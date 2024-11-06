@@ -51,7 +51,8 @@ const config = {
         "secondary-bg-color": "#4D4D4F"
       },
       backgroundImage: {
-        "hero-banner": "url('https://cdn11.bigcommerce.com/s-t0676dlrio/images/stencil/original/image-manager/hero-banner2x.png?t=1730268778')"
+        "hero-banner": "url('https://cdn11.bigcommerce.com/s-t0676dlrio/images/stencil/original/image-manager/hero-banner2x.png?t=1730268778')",
+        "kromer-country": "url('https://cdn11.bigcommerce.com/s-3vdgh6wtox/images/stencil/original/image-manager/kromercountryimage.jpg?t=1712200908')"
       }
     },
     screens: {

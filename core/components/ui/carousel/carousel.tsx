@@ -105,10 +105,14 @@ const Carousel = ({ className, title, pageSize = 4, products, ...props }: Props)
       {...props}
     >
       <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-black lg:text-4xl" id={titleId}>
+
+        {window.location.pathname === '/' ? <h2 className={cn('text-3xl font-black lg:text-4xl', 'mx-auto !text-[28px] !font-[700]')} id={titleId}>
           {title}
-        </h2>
-        <span className="no-wrap flex">
+        </h2> : <h2 className="text-3xl font-black lg:text-4xl" id={titleId}>
+          {title}
+        </h2>}
+
+        {window.location.pathname === '/' ? null : <span className="no-wrap flex">
           <button
             aria-label="Previous products"
             className={cn(
@@ -134,11 +138,12 @@ const Carousel = ({ className, title, pageSize = 4, products, ...props }: Props)
             <ArrowRight />
             <span className="sr-only">Next slide</span>
           </button>
-        </span>
+        </span>}
+
       </div>
 
       <div className="-mx-2 overflow-hidden px-2" ref={carouselRef}>
-        <div className="-mx-4 mb-16 mt-8 flex lg:mt-10">
+        <div className={cn('-mx-4 mb-16 mt-8 flex lg:mt-10', 'mt-[0px]')}>
           {groupedProducts.map((group, index) => (
             <div
               aria-label={`${index + 1} of ${groupedProducts.length}`}
@@ -157,7 +162,8 @@ const Carousel = ({ className, title, pageSize = 4, products, ...props }: Props)
         </div>
       </div>
 
-      <div
+      {/* slides */}
+      {/* <div
         aria-label="Slides"
         className={cn(
           'no-wrap absolute bottom-1 flex w-full items-center justify-center gap-2',
@@ -179,7 +185,8 @@ const Carousel = ({ className, title, pageSize = 4, products, ...props }: Props)
             role="tab"
           />
         ))}
-      </div>
+      </div> */}
+
     </div>
   );
 };

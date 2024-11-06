@@ -64,8 +64,6 @@ export default async function Home({ params: { locale } }: Props) {
   const newestProducts = removeEdgesAndNodes(data.site.newestProducts);
   const bestSellingProducts = removeEdgesAndNodes(data.site.bestSellingProducts);
 
-  console.log(bestSellingProducts);
-
   return (
     <>
       <div>
@@ -167,22 +165,76 @@ export default async function Home({ params: { locale } }: Props) {
           </div>
         </div>
       </div>
-      {/* <Slideshow />
 
-      <div className="my-10">
-        <ProductCardCarousel
+      {/* <Slideshow /> */}
+
+      <div className="max-w-[1440px] w-[92%] mx-auto mt-[50px]">
+        {/* <ProductCardCarousel
           products={featuredProducts}
           showCart={false}
           showCompare={false}
           title={t('Carousel.featuredProducts')}
-        />
+        /> */}
         <ProductCardCarousel
-          products={newestProducts}
+          products={bestSellingProducts}
           showCart={false}
           showCompare={false}
-          title={t('Carousel.newestProducts')}
+          title='OUR BESTSELLERS'
         />
-      </div> */}
+      </div>
+
+      <div className='max-w-[1440px] w-[92%] mx-auto mt-[50px]'>
+        <div className='w-[100%] flex flex-row flex-wrap justify-between items-center'>
+
+          <div className='group relative w-[100%] md:w-[32%] overflow-hidden'>
+            <div className='relative transition-transform duration-300 group-hover:scale-[1.1]'>
+              <img className='w-full h-auto transition-all duration-300' src='https://cdn11.bigcommerce.com/s-t0676dlrio/images/stencil/original/image-manager/kids-img-2x.png?t=1730857387' />
+            </div>
+            <div className='absolute transform -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%] text-center w-[70%]'>
+              <h3 className='text-white text-[24px] font-[600]'>SHIRTS</h3>
+              <button>
+                <span className='text-white text-[14px] underline'>SHOP NOW</span>
+              </button>
+            </div>
+          </div>
+
+          <div className='group relative w-[100%] md:w-[32%] overflow-hidden'>
+            <div className='relative transition-transform duration-300 group-hover:scale-[1.1]'>
+              <img className='w-full h-auto transition-all duration-300' src='https://cdn11.bigcommerce.com/s-t0676dlrio/images/stencil/original/image-manager/pet-img-2x.png?t=1730857390' />
+            </div>
+            <div className='absolute transform -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%] text-center w-[70%]'>
+              <h3 className='text-white text-[24px] font-[600]'>PET</h3>
+              <button>
+                <span className='text-white text-[14px] underline'>SHOP NOW</span>
+              </button>
+            </div>
+          </div>
+
+          <div className='group relative w-[100%] md:w-[32%] overflow-hidden'>
+            <div className='relative transition-transform duration-300 group-hover:scale-[1.1]'>
+              <img className='w-full h-auto transition-all duration-300' src='https://cdn11.bigcommerce.com/s-t0676dlrio/images/stencil/original/image-manager/home-gifts-img-2x.png?t=1730857383' />
+            </div>
+            <div className='absolute transform -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%] text-center w-[70%]'>
+              <h3 className='text-white text-[24px] font-[600]'>HOME & GIFTS</h3>
+              <button>
+                <span className='text-white text-[14px] underline'>SHOP NOW</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div className='bg-kromer-country bg-cover bg-no-repeat bg-center h-[580px] max-w-[1440px] w-[92%] mx-auto mt-[25px] relative'>
+        <div className='absolute transform -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%] text-center w-[70%]'>
+          <img className='mx-auto h-auto w-[80%] lg:w-[40%] object-contain mb-[25px]' src='https://cdn11.bigcommerce.com/s-3vdgh6wtox/images/stencil/original/image-manager/kromer-discover-logo.png?t=1712282804' />
+          <p className='text-white text-[14px] font-[400] w-[80%] sm:w-[432px] md:w-[80%] mx-auto'>We are a community of adventurers, outdoor enthusiasts, farmers, hunters, ranchers and everything in between. Our mission is to bring you closer to the great outdoors, sharing stories of the iconic Stormy Kromer brand through the eyes of people who wear and love our products.</p>
+          <button className='group h-auto w-auto bg-white hover:bg-[#AD1A2E] text-center py-[.75rem] px-[2.5rem] mt-[25px]'>
+            <span className='text-[#AD1A2E] group-hover:text-white text-[14px] font-[600]'>DISCOVER STORIES</span>
+          </button>
+        </div>
+      </div>
+
     </>
   );
 }
