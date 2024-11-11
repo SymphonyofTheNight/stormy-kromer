@@ -55,7 +55,7 @@ const Footer = ({
 
     <section className="flex flex-col-reverse gap-8 border-t border-gray-200 py-10 md:flex-row lg:gap-4 2xl:px-0 mb-[35px] max-w-[1440px] w-[92%] mx-auto">
 
-      <nav className="grid flex-auto auto-cols-fr gap-[9rem] sm:grid-flow-col">
+      <nav className={cn('grid flex-auto auto-cols-fr md:gap-[9rem] sm:grid-flow-col', 'gap-[3rem]')}>
         {sections.map((section) => (
           <div className='text-left md:text-right' key={section.title}>
             <h3 className="mb-4 text-lg uppercase !text-[15px] !font-[400]">{section.title}</h3>
@@ -70,7 +70,7 @@ const Footer = ({
         ))}
       </nav>
 
-      <div className="grid items-center justify-center md:items-start md:justify-start md:flex md:flex-col gap-4 md:order-first md:grow">
+      <div className={cn('grid items-center justify-center md:items-start md:justify-start md:flex md:flex-col gap-4 md:order-first md:grow')}>
         {Boolean(logo) && (
           <h3>
             {typeof logo === 'object' ? (
@@ -128,17 +128,17 @@ const Footer = ({
     <section className="flex flex-col gap-10 border-t border-gray-200 px-4 py-8 sm:gap-8 sm:px-10 sm:py-6 lg:hidden lg:px-12 2xl:px-0">
       <Locale />
 
-      <div className="flex w-full flex-col justify-between gap-10 sm:flex-row sm:gap-8">
-        <div className="flex gap-6">{paymentIcons}</div>
-        <p className="text-gray-500 sm:order-first">{copyright}</p>
+      <div className={cn('flex w-full flex-col justify-between gap-10 sm:flex-row sm:gap-8', 'text-center md:text-left')}>
+        {/* <div className="flex gap-6">{paymentIcons}</div> */}
+        <p className={cn('text-gray-500 sm:order-first', 'text-white text-[14px] font-[200]')}>{copyright}</p>
       </div>
     </section>
 
     <section className="hidden justify-between gap-8 border-t border-gray-200 px-4 py-6 sm:px-10 lg:flex lg:px-12 2xl:px-0 max-w-[1440px] w-[92%] mx-auto">
-      <p className="text-gray-500 sm:order-first">{copyright}</p>
+      <p className={cn('text-gray-500 sm:order-first', 'text-white text-[14px] font-[200]')}>{copyright}</p>
       <div className="flex gap-8">
         <Locale />
-        <div className="flex gap-6">{paymentIcons}</div>
+        {/* <div className="flex gap-6">{paymentIcons}</div> */}
       </div>
     </section>
 
